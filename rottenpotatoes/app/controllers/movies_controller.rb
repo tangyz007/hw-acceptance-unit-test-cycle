@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
 
   def movie_params
-    params.require(:movie).permit(:title, :rating, :description, :release_date)
+    params.require(:movie).permit(:title, :rating, :description, :release_date, :director)
   end
 
   def show
@@ -11,6 +11,7 @@ class MoviesController < ApplicationController
   end
 
   def index
+    # Movie.add_column(:director, :string, limit: 100)
     sort = params[:sort] || session[:sort]
     case sort
     when 'title'
