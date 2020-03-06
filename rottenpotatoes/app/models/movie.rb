@@ -3,6 +3,6 @@ class Movie < ActiveRecord::Base
     %w(G PG PG-13 NC-17 R)
   end
   def self.same_directors director
-    Movie.where(:director => director)
+    director.nil? ? nil : Movie.where(:director => director).to_a()
   end
 end

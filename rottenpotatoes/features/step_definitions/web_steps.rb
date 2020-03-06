@@ -252,3 +252,7 @@ end
 Then /^show me the page$/ do
   save_and_open_page
 end
+
+Then(/^the director of "([^"]*)" should be "([^"]*)"$/) do |arg1, arg2|
+  Movie.find_by_title(arg1).director == arg2 # Write code here that turns the phrase above into concrete actions
+end
